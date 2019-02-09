@@ -1,5 +1,5 @@
 export default {
-  'Hi from the second page': 'No siema z drugiej strony',
+  'Hi from the second page': 'No elo',
   'Welcome to page 2': 'Witaj na drugiej stronie',
   'Go back to the homepage': 'Wróć do domu',
 };

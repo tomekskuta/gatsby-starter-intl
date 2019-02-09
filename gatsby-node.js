@@ -15,7 +15,7 @@ exports.onCreatePage = ({ page, actions }) => {
   }
 
   return new Promise(resolve => {
-    const Redirect = path.resolve('src/i18n/Redirect.jsx');
+    const Redirect = path.resolve('src/i18n/redirect.jsx');
     const redirectPage = {
       ...page,
       component: Redirect,
