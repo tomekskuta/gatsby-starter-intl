@@ -1,6 +1,13 @@
 # Gatsby starter intl
 
-I will add docs in a few days. For now default starter docs:
+I will add docs in a few days. For now default starter docs.
+
+TODO:
+
+- write docz.
+- find better way to detect original path in Langs component.
+- refactor to better names and remove unnecessary code.
+- try to add pageContext to Layout without add props.
 
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
