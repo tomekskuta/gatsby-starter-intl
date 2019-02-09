@@ -1,42 +1,18 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
 import { IntlProvider, addLocaleData } from 'react-intl';
 
 import plData from 'react-intl/locale-data/pl';
 import enData from 'react-intl/locale-data/en';
+import locales from '../i18n/locales';
 
-import { locales } from '../i18n';
-
-import Header from './header';
+import Header from './Header';
 import './layout.css';
 
 addLocaleData([...plData, ...enData]);
 
-const Layout = ({ children, locale, location }) => {
-  console.log(location);
-  // useEffect(() => {
-  //   const langKeys = languages.map(language => language.path);
-  //   const { pathname } = props.location;
-
-  //   // Skip build, Browsers only
-  //   if (typeof window !== 'undefined') {
-  //     const detected =
-  //       window.localStorage.getItem('language') ||
-  //       browserLang({
-  //         languages: langKeys,
-  //         fallback: 'en',
-  //       });
-
-  //     // const newUrl = withPrefix(`/${detected}${pathname}`);
-  //     const newUrl = languages.find(lang => lang.path === detected).default
-  //       ? `/${pathname}`
-  //       : `/${detected}/${pathname}`;
-  //     window.localStorage.setItem('language', detected);
-  //     window.location.replace(newUrl);
-  //   }
-  // }, []);
-
+const Layout = ({ children, locale }) => {
   return (
     <StaticQuery
       query={graphql`

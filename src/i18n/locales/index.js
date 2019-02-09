@@ -1,4 +1,4 @@
-import pl from './pl.js';
-import en from './en.js';
+import pl from './pl';
+import en from './en';
 
 export default { pl, en };
