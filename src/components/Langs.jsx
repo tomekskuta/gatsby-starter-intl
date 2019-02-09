@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { navigate } from 'gatsby';
 import { injectIntl } from 'react-intl';
 
 import languages from '../i18n/languages';
@@ -17,7 +18,7 @@ const Langs = ({ intl: { locale } }) => {
     const pathname = window.location.pathname.split('/');
     pathname[1] = language;
     const newPathname = pathname.join('/');
-    window.location.replace(newPathname);
+    navigate(newPathname);
     setLang(language);
   };
 
