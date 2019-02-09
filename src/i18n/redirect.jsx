@@ -6,7 +6,6 @@ import languages from './languages';
 
 const Redirect = ({ location: { pathname } }) => {
   useEffect(() => {
-    // if (typeof window !== 'undefined') {
     const detected =
       localStorage.getItem('language') ||
       browserLang({
@@ -16,7 +15,6 @@ const Redirect = ({ location: { pathname } }) => {
     const newUrl = `/${detected}${pathname}`;
     localStorage.setItem('language', detected);
     navigate(newUrl);
-    // }
   }, []);
 
   return <div />;

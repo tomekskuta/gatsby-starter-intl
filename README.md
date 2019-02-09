@@ -1,3 +1,7 @@
+# Gatsby starter intl
+
+I will add docs in a few days. For now default starter docs:
+
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://www.gatsbyjs.org">
