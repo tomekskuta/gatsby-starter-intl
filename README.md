@@ -6,6 +6,7 @@ TODO:
 
 - write docz.
 - find better way to detect original path in Langs component.
+- connect SEO component with intl
 - refactor to better names and remove unnecessary code.
 - try to add pageContext to Layout without add props.
 
