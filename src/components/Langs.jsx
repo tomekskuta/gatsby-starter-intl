@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import { navigate } from 'gatsby';
 import { injectIntl } from 'react-intl';
 
 import languages from '../i18n/languages';
+import PageContext from '../layout/PageContext';
 
 const LangButton = ({ name, chosen, onClick }) => (
   <button onClick={onClick} style={{ background: chosen ? 'pink' : 'white' }}>
@@ -11,15 +12,14 @@ const LangButton = ({ name, chosen, onClick }) => (
 );
 
 const Langs = ({ intl: { locale } }) => {
-  const [lang, setLang] = useState(locale);
+  const pageContext = useContext(PageContext);
 
   const handleSetLang = language => {
+    const { originalPath } = pageContext.page;
+    const newPathname = `/${language}${originalPath}`;
+
     localStorage.setItem('language', language);
-    const pathname = window.location.pathname.split('/');
-    pathname[1] = language;
-    const newPathname = pathname.join('/');
     navigate(newPathname);
-    setLang(language);
   };
 
   return (
@@ -28,7 +28,7 @@ const Langs = ({ intl: { locale } }) => {
         <LangButton
           key={language.path}
           name={language.locale}
-          chosen={language.path === lang}
+          chosen={language.path === locale}
           onClick={() => handleSetLang(language.path)}
         />
       ))}

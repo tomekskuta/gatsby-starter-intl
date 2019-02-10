@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "gatsby-starter-intl",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "description": "A simple starter to get up and developing quickly with Gatsby and i18n",
+  "version": "0.2.0",
+  "author": "Tomek Skuta <tomskuta@gmail.com>",
   "dependencies": {
     "browser-lang": "^0.0.1",
     "flat": "^4.1.0",

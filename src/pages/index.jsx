@@ -1,13 +1,13 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
-import Layout from '../components/Layout';
+import withLayout from '../layout/withLayout';
 import Link from '../components/Link';
 import Image from '../components/Image';
 import SEO from '../components/SEO';
 
-const IndexPage = ({ pageContext: { locale } }) => (
-  <Layout locale={locale}>
+const IndexPage = () => (
+  <>
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
     <h1>
       <FormattedMessage id="home.Hi people" />
@@ -24,7 +24,9 @@ const IndexPage = ({ pageContext: { locale } }) => (
     <Link to="/page-2/">
       <FormattedMessage id="home.Go to page 2" />
     </Link>
-  </Layout>
+  </>
 );
 
-export default IndexPage;
+const customProps = {};
+
+export default withLayout(customProps)(IndexPage);
