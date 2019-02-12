@@ -1,22 +1,60 @@
-# Gatsby starter intl
-
-I will add docs in a few days. For now default starter docs.
-
-TODO:
-
-- write docz.
-- connect SEO component with intl
-- refactor to better names and remove unnecessary code.
-
-<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://www.gatsbyjs.org">
     <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
   </a>
 </p>
-<h1 align="center">
-  Gatsby's default starter
-</h1>
+
+# :bullettrain_side: Gatsby starter intl :airplane:
+
+Gatsby v2 i18n starter based on [Gatsby Starter Default](https://github.com/gatsbyjs/gatsby-starter-default) and [gatsby-starter-default-intl](https://github.com/wiziple/gatsby-starter-default-intl).
+Gatsby creates static pages for every language and detects your browser locale. That rocks! :guitar:
+
+## How to start
+
+To start use **Gatsby starter intl** you have to install Gatsby CLI
+
+```sh
+npm install global gatsby-cli
+or
+yarn global add gatsby-cli
+```
+
+Then use it to start new project based on **Gatsby starter intl**
+
+```sh
+gatsby new your-project-name https://github.com/tomekskuta/gatsby-starter-intl
+cd your-project-name/
+gatsby develop
+```
+
+Your site is running at `localhost:8000`.
+
+If you want to compile your production build just run `gatsby build`. That's easy.
+
+Start build your great i18n Gatsby app! :rocket:
+
+## How it works
+
+Gatsby creates **static pages** for every language sets in `src/i18n/languages.js`.
+It looks like `/en/page-2` and `/pl/page-2`. Google loves it - they said.
+
+Translations are set in `src/i18n/locales/`. For better navigation I prefer create files for every page. Unfortunately react-intl supports only flat objects so in `src/i18n/locales/chosen-lang/index.js` I used [flat](https://github.com/hughsk/flat). Don't forget to import your translate file into `index.js` in the same directory.
+Then if I want to get translation for `Welcome to page 2` on `page-2` I do it like this:
+
+```jsx
+<FormattedMessage id="page2.Welcome to page 2" />
+```
+
+TODO:
+
+- write good docz.
+- connect SEO component with some intl magic
+- refactor to better names and remove unnecessary code.
+- :nail_care: style locale buttons to look pretty and stylish :high_heel:
+
+### Default starter's docs:
+
+<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 
 Kick off your project with this default boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
 
