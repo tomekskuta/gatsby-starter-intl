@@ -7,7 +7,7 @@ import PageContext from './PageContext';
 
 import plData from 'react-intl/locale-data/pl';
 import enData from 'react-intl/locale-data/en';
-import locales from '../i18n/locales';
+import translations from '../i18n/translations';
 
 import Header from '../components/Header';
 import './layout.css';
@@ -30,7 +30,7 @@ const withLayout = customProps => PageComponent => props => {
         }
       `}
       render={data => (
-        <IntlProvider locale={locale} messages={locales[locale]}>
+        <IntlProvider locale={locale} messages={translations[locale]}>
           <PageContext.Provider value={pageContextValue}>
             <Header siteTitle={data.site.siteMetadata.title} />
             <div

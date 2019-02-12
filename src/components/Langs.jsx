@@ -5,9 +5,9 @@ import { injectIntl } from 'react-intl';
 import languages from '../i18n/languages';
 import PageContext from '../layout/PageContext';
 
-const LangButton = ({ name, chosen, onClick }) => (
+const LangButton = ({ label, chosen, onClick }) => (
   <button onClick={onClick} style={{ background: chosen ? 'pink' : 'white' }}>
-    {name}
+    {label}
   </button>
 );
 
@@ -26,10 +26,10 @@ const Langs = ({ intl: { locale } }) => {
     <div>
       {languages.map(language => (
         <LangButton
-          key={language.path}
-          name={language.locale}
-          chosen={language.path === locale}
-          onClick={() => handleSetLang(language.path)}
+          key={language.locale}
+          label={language.label}
+          chosen={language.locale === locale}
+          onClick={() => handleSetLang(language.locale)}
         />
       ))}
     </div>

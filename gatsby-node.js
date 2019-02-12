@@ -31,14 +31,14 @@ exports.onCreatePage = ({ page, actions }) => {
     createPage(redirectPage);
 
     languages.forEach(lang => {
-      const localizedPath = `/${lang.path}${page.path}`;
+      const localizedPath = `/${lang.locale}${page.path}`;
       const localePage = {
         ...page,
         originalPath: page.path,
         path: localizedPath,
         context: {
           languages,
-          locale: lang.path,
+          locale: lang.locale,
           routed: true,
           originalPath: page.path,
         },

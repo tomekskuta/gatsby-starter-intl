@@ -38,7 +38,7 @@ Start build your great i18n Gatsby app! :rocket:
 Gatsby creates **static pages** for every language sets in `src/i18n/languages.js`.
 It looks like `/en/page-2` and `/pl/page-2`. Google loves it - they said.
 
-Translations are set in `src/i18n/locales/`. For better navigation I prefer create files for every page. Unfortunately react-intl supports only flat objects so in `src/i18n/locales/chosen-lang/index.js` I used [flat](https://github.com/hughsk/flat). Don't forget to import your translate file into `index.js` in the same directory.
+Translations are set in `src/i18n/translations/`. For better navigation I prefer create files for every page. Unfortunately react-intl supports only flat objects so in `src/i18n/translations/chosen-lang/index.js` I used [flat](https://github.com/hughsk/flat). Don't forget to import your translate file into `index.js` in the same directory.
 Then if I want to get translation for `Welcome to page 2` on `page-2` I do it like this:
 
 ```jsx
@@ -49,7 +49,6 @@ TODO:
 
 - write good docz.
 - connect SEO component with some intl magic
-- refactor to better names and remove unnecessary code.
 - :nail_care: style locale buttons to look pretty and stylish :high_heel:
 
 ### Default starter's docs:

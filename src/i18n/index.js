@@ -1,4 +1,4 @@
-import locales from './locales';
+import translations from './translations';
 import languages from './languages';
 
-export { locales, languages };
+export { translations, languages };
