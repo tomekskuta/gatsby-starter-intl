@@ -29,7 +29,7 @@ gatsby develop
 
 Your site is running at `localhost:8000`.
 
-If you want to compile your production build just run `gatsby build`. That's easy.
+If you want to compile your production build just run `gatsby build`.
 
 Start build your great i18n Gatsby app! :rocket:
 
