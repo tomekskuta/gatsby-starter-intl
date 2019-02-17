@@ -22,6 +22,7 @@ const Langs = ({ intl: { locale } }) => {
     navigate(newPathname);
   };
 
+  if (!pageContext.custom.localeKey) return null;
   return (
     <div>
       {languages.map(language => (

@@ -7,7 +7,7 @@ import PageContext from './PageContext';
 
 import plData from 'react-intl/locale-data/pl';
 import enData from 'react-intl/locale-data/en';
-import { translations, detectLocale } from '../i18n';
+import { translations, languages } from '../i18n';
 
 import Header from '../components/Header';
 import SEO from '../components/SEO';
@@ -19,10 +19,12 @@ const withLayout = customProps => PageComponent => props => {
   const { locale } = props.pageContext;
   const { localeKey } = customProps;
 
-  const pageLocale = localeKey === 'notFound' ? detectLocale() : locale;
   const pageContextValue = { custom: customProps, page: props.pageContext };
 
-  const pageTitle = translations[pageLocale][`${localeKey}.title`];
+  const defaultLocale = languages.find(language => language.default).locale;
+  const pageLocale = locale || defaultLocale;
+
+  const pageTitle = locale ? translations[locale][`${localeKey}.title`] : '';
 
   return (
     <StaticQuery

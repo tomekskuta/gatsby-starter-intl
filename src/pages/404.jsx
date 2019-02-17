@@ -1,21 +1,14 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
 
 import withLayout from '../layout';
 
 const NotFoundPage = () => (
   <>
-    <h1>
-      <FormattedMessage id="notFound.NOT FOUND" />
-    </h1>
-    <p>
-      <FormattedMessage id="notFound.You just hit a route that doesnt exist the sadness" />
-    </p>
+    <h1>NOT FOUND</h1>
+    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
   </>
 );
 
-const customProps = {
-  localeKey: 'notFound',
-};
+const customProps = {};
 
 export default withLayout(customProps)(NotFoundPage);
