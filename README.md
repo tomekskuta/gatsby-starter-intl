@@ -7,11 +7,11 @@
 # :bullettrain_side: Gatsby starter intl :airplane:
 
 Gatsby v2 i18n starter based on [Gatsby Starter Default](https://github.com/gatsbyjs/gatsby-starter-default) and [gatsby-starter-default-intl](https://github.com/wiziple/gatsby-starter-default-intl).
-Gatsby creates static pages for every language and detects your browser locale. That rocks! :guitar:
+Gatsby creates static pages for every language and detects your browser locale. :guitar:
 
 ## How to start
 
-To start use **Gatsby starter intl** you have to install Gatsby CLI
+To use **Gatsby starter intl** you have to install Gatsby CLI
 
 ```sh
 npm install global gatsby-cli
@@ -29,7 +29,7 @@ gatsby develop
 
 Your site is running at `localhost:8000`.
 
-If you want to compile your production build just run `gatsby build`.
+If you want to compile production build just run `gatsby build`.
 
 Start build your great i18n Gatsby app! :rocket:
 
@@ -43,6 +43,14 @@ Then if I want to get translation for `Welcome to page 2` on `page-2` I do it li
 
 ```jsx
 <FormattedMessage id="page2.Welcome to page 2" />
+```
+
+Translation is in `src/i18n/translations/en/page-2.js` and looks like:
+
+```js
+export default {
+  'Welcome to page 2': 'Welcome to page 2',
+};
 ```
 
 TODO:
