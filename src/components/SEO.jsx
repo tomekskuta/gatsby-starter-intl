@@ -1,21 +1,23 @@
-import React from "react"
-import PropTypes from "prop-types"
-import Helmet from "react-helmet"
-import { StaticQuery, graphql } from "gatsby"
+import React from 'react';
+import PropTypes from 'prop-types';
+import Helmet from 'react-helmet';
+import { StaticQuery, graphql } from 'gatsby';
 
 function SEO({ description, lang, meta, keywords, title }) {
   return (
     <StaticQuery
       query={detailsQuery}
       render={data => {
-        const metaDescription =
-          description || data.site.siteMetadata.description
+        const pageTitle = title || data.site.siteMetadata.title;
+        const metaDescription = description || data.site.siteMetadata.description;
+        const metaKeywords = keywords.length ? keywords : data.site.siteMetadata.keywords;
+
         return (
           <Helmet
             htmlAttributes={{
               lang,
             }}
-            title={title}
+            title={pageTitle}
             titleTemplate={`%s | ${data.site.siteMetadata.title}`}
             meta={[
               {
@@ -24,7 +26,7 @@ function SEO({ description, lang, meta, keywords, title }) {
               },
               {
                 property: `og:title`,
-                content: title,
+                content: pageTitle,
               },
               {
                 property: `og:description`,
@@ -44,7 +46,7 @@ function SEO({ description, lang, meta, keywords, title }) {
               },
               {
                 name: `twitter:title`,
-                content: title,
+                content: pageTitle,
               },
               {
                 name: `twitter:description`,
@@ -52,36 +54,36 @@ function SEO({ description, lang, meta, keywords, title }) {
               },
             ]
               .concat(
-                keywords.length > 0
+                metaKeywords.length > 0
                   ? {
                       name: `keywords`,
-                      content: keywords.join(`, `),
+                      content: metaKeywords.join(`, `),
                     }
-                  : []
+                  : [],
               )
               .concat(meta)}
           />
-        )
+        );
       }}
     />
-  )
+  );
 }
 
 SEO.defaultProps = {
-  lang: `en`,
+  title: '',
   meta: [],
   keywords: [],
-}
+};
 
 SEO.propTypes = {
   description: PropTypes.string,
-  lang: PropTypes.string,
+  lang: PropTypes.string.isRequired,
   meta: PropTypes.array,
   keywords: PropTypes.arrayOf(PropTypes.string),
-  title: PropTypes.string.isRequired,
-}
+  title: PropTypes.string,
+};
 
-export default SEO
+export default SEO;
 
 const detailsQuery = graphql`
   query DefaultSEOQuery {
@@ -90,7 +92,8 @@ const detailsQuery = graphql`
         title
         description
         author
+        keywords
       }
     }
   }
-`
+`;

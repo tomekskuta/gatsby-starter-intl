@@ -1,13 +1,11 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
-import withLayout from '../layout/withLayout';
+import withLayout from '../layout';
 import Link from '../components/Link';
-import SEO from '../components/SEO';
 
 const SecondPage = () => (
   <>
-    <SEO title="Page two" />
     <h1>
       <FormattedMessage id="page2.Hi from the second page" />
     </h1>
@@ -20,6 +18,8 @@ const SecondPage = () => (
   </>
 );
 
-const customProps = {};
+const customProps = {
+  localeKey: 'page2',
+};
 
 export default withLayout(customProps)(SecondPage);

@@ -48,8 +48,8 @@ Then if I want to get translation for `Welcome to page 2` on `page-2` I do it li
 TODO:
 
 - write good docz.
-- connect SEO component with some intl magic
 - :nail_care: style locale buttons to look pretty and stylish :high_heel:
+- config unit tests
 
 ### Default starter's docs:
 

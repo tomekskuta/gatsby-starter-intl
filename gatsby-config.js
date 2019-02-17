@@ -1,8 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby i18n Starter`,
+    title: `Gatsby Starter Intl`,
     description: `Kick off your next, great Gatsby project with this i18n starter. This barebones starter ships with the main Gatsby configuration files you might need... and i18n too!`,
-    author: `@gatsbyjs, tomekskuta`,
+    author: `@gatsbyjs, @tomekskuta`,
+    keywords: [`gatsby`, `application`, `react`],
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

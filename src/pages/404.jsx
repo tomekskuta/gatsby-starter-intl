@@ -1,16 +1,21 @@
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 
-import withLayout from '../layout/withLayout';
-import SEO from '../components/SEO';
+import withLayout from '../layout';
 
 const NotFoundPage = () => (
   <>
-    <SEO title="404: Not found" />
-    <h1>NOT FOUND</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+    <h1>
+      <FormattedMessage id="notFound.NOT FOUND" />
+    </h1>
+    <p>
+      <FormattedMessage id="notFound.You just hit a route that doesnt exist the sadness" />
+    </p>
   </>
 );
 
-const customProps = {};
+const customProps = {
+  localeKey: 'notFound',
+};
 
 export default withLayout(customProps)(NotFoundPage);

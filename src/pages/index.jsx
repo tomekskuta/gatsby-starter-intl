@@ -1,14 +1,12 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
-import withLayout from '../layout/withLayout';
+import withLayout from '../layout';
 import Link from '../components/Link';
 import Image from '../components/Image';
-import SEO from '../components/SEO';
 
 const IndexPage = () => (
   <>
-    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
     <h1>
       <FormattedMessage id="home.Hi people" />
     </h1>
@@ -27,6 +25,8 @@ const IndexPage = () => (
   </>
 );
 
-const customProps = {};
+const customProps = {
+  localeKey: 'home', // same as file name in src/i18n/translations/your-lang/index.js
+};
 
 export default withLayout(customProps)(IndexPage);

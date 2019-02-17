@@ -7,16 +7,22 @@ import PageContext from './PageContext';
 
 import plData from 'react-intl/locale-data/pl';
 import enData from 'react-intl/locale-data/en';
-import translations from '../i18n/translations';
+import { translations, detectLocale } from '../i18n';
 
 import Header from '../components/Header';
+import SEO from '../components/SEO';
 import './layout.css';
 
 addLocaleData([...plData, ...enData]);
 
 const withLayout = customProps => PageComponent => props => {
   const { locale } = props.pageContext;
+  const { localeKey } = customProps;
+
+  const pageLocale = localeKey === 'notFound' ? detectLocale() : locale;
   const pageContextValue = { custom: customProps, page: props.pageContext };
+
+  const pageTitle = translations[pageLocale][`${localeKey}.title`];
 
   return (
     <StaticQuery
@@ -30,8 +36,9 @@ const withLayout = customProps => PageComponent => props => {
         }
       `}
       render={data => (
-        <IntlProvider locale={locale} messages={translations[locale]}>
+        <IntlProvider locale={pageLocale} messages={translations[pageLocale]}>
           <PageContext.Provider value={pageContextValue}>
+            <SEO title={pageTitle} lang={pageLocale} />
             <Header siteTitle={data.site.siteMetadata.title} />
             <div
               style={{

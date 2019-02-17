@@ -1,20 +1,10 @@
 import React, { useEffect } from 'react';
-import { navigate } from 'gatsby';
-import browserLang from 'browser-lang';
 
-import languages from './languages';
+import detectLocale from './detectLocale';
 
-const Redirect = ({ location: { pathname } }) => {
+const Redirect = ({ location: { pathname }, navigate }) => {
   useEffect(() => {
-    const fallbackLang = languages.find(language => language.default).locale;
-
-    const detected =
-      localStorage.getItem('language') ||
-      browserLang({
-        languages: languages.map(language => language.locale),
-        fallback: fallbackLang,
-      });
-
+    const detected = detectLocale();
     const newUrl = `/${detected}${pathname}`;
 
     localStorage.setItem('language', detected);
