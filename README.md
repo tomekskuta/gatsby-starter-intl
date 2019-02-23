@@ -9,6 +9,8 @@
 Gatsby v2 i18n starter based on [Gatsby Starter Default](https://github.com/gatsbyjs/gatsby-starter-default) and [gatsby-starter-default-intl](https://github.com/wiziple/gatsby-starter-default-intl).
 Gatsby creates static pages for every language and detects your browser locale. :guitar:
 
+[Checkout demo!](https://gatsby-starter-intl.tomekskuta.pl/)
+
 ## How to start
 
 To use **Gatsby starter intl** you have to install Gatsby CLI
@@ -58,9 +60,7 @@ TODO:
 - write good docz.
 - :nail_care: style locale buttons to look pretty and stylish :high_heel:
 - config unit tests
-- fix 404 redirect bug
-- try to connect 404 to i18n (tried few ways, have no idea how to do it)
-- add demo to gh-pages
+- try to connect 404 to i18n (tried few ways, have no idea how to do it) EDIT - ok, probably it will works with production build.
 
 ### Default starter's docs:
 
