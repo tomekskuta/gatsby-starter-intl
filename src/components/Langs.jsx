@@ -6,7 +6,7 @@ import languages from '../i18n/languages';
 import PageContext from '../layout/PageContext';
 
 const buttonStyle = {
-  marginLeft: '0.5em',
+  margin: '0.5rem',
   borderRadius: '10px',
   border: 0,
   cursor: 'pointer',
@@ -35,16 +35,9 @@ const Langs = ({ intl: { locale } }) => {
     navigate(newPathname);
   };
 
-  const containerStyle = {
-    position: 'absolute',
-    top: 0,
-    right: 0,
-    margin: '1em',
-  };
-
   if (!pageContext.custom.localeKey) return null;
   return (
-    <div style={containerStyle}>
+    <div>
       {languages.map(language => (
         <LangButton
           key={language.locale}

@@ -17,7 +17,11 @@ const IndexPage = () => (
       <FormattedMessage id="home.Now go build something great" />
     </p>
     <p>
-      <a href="https://github.com/tomekskuta/gatsby-starter-intl" target="_blank">
+      <a
+        href="https://github.com/tomekskuta/gatsby-starter-intl"
+        target="_blank"
+        rel="noreferrer noopener"
+      >
         <FormattedMessage id="home.or learn more" />
       </a>
     </p>
