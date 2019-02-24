@@ -16,6 +16,11 @@ const IndexPage = () => (
     <p>
       <FormattedMessage id="home.Now go build something great" />
     </p>
+    <p>
+      <a href="https://github.com/tomekskuta/gatsby-starter-intl" target="_blank">
+        <FormattedMessage id="home.or learn more" />
+      </a>
+    </p>
     <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
       <Image />
     </div>
