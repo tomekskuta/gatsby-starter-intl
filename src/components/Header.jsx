@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Link from './Link';
 import Langs from './Langs';
 
-const Header = ({ siteTitle }) => (
+const Header = ({ siteTitle, hideLangs }) => (
   <header
     style={{
       background: `rebeccapurple`,
@@ -31,17 +31,19 @@ const Header = ({ siteTitle }) => (
           {siteTitle}
         </Link>
       </h1>
-      <Langs />
+      {!hideLangs && <Langs />}
     </div>
   </header>
 );
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
+  hideLangs: PropTypes.bool,
 };
 
 Header.defaultProps = {
   siteTitle: ``,
+  hideLangs: false,
 };
 
 export default Header;

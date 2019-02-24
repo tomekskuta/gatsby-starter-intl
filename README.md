@@ -58,9 +58,7 @@ export default {
 TODO:
 
 - write good docz.
-- :nail_care: style locale buttons to look pretty and stylish :high_heel:
 - config unit tests
-- try to connect 404 to i18n (tried few ways, have no idea how to do it) EDIT - ok, probably it will works with production build.
 
 ### Default starter's docs:
 

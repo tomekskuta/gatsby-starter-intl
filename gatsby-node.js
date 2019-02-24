@@ -10,10 +10,6 @@ const languages = require('./src/i18n/languages');
 exports.onCreatePage = ({ page, actions }) => {
   const { createPage, deletePage } = actions;
 
-  if (page.path.includes('404')) {
-    return Promise.resolve();
-  }
-
   return new Promise(resolve => {
     const Redirect = path.resolve('src/i18n/redirect.jsx');
     const redirectPage = {

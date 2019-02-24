@@ -2,10 +2,10 @@ import React, { useEffect } from 'react';
 
 import detectLocale from './detectLocale';
 
-const Redirect = ({ location: { pathname }, navigate }) => {
+const Redirect = ({ navigate, pageContext: { redirectPage } }) => {
   useEffect(() => {
     const detected = detectLocale();
-    const newUrl = `/${detected}${pathname}`;
+    const newUrl = `/${detected}${redirectPage}`;
 
     localStorage.setItem('language', detected);
     navigate(newUrl);

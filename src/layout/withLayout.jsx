@@ -17,7 +17,7 @@ addLocaleData([...plData, ...enData]);
 
 const withLayout = customProps => PageComponent => props => {
   const { locale } = props.pageContext;
-  const { localeKey } = customProps;
+  const { localeKey, hideLangs } = customProps;
 
   const pageContextValue = { custom: customProps, page: props.pageContext };
 
@@ -41,7 +41,7 @@ const withLayout = customProps => PageComponent => props => {
         <IntlProvider locale={pageLocale} messages={translations[pageLocale]}>
           <PageContext.Provider value={pageContextValue}>
             <SEO title={pageTitle} lang={pageLocale} />
-            <Header siteTitle={data.site.siteMetadata.title} />
+            <Header siteTitle={data.site.siteMetadata.title} hideLangs={hideLangs} />
             <div
               style={{
                 margin: `0 auto`,
