@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Link from './Link';
-import Langs from './Langs';
+import Link from '../Link';
+import Langs from '../Langs';
 
 const Header = ({ siteTitle, hideLangs }) => (
   <header

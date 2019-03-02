@@ -2,7 +2,7 @@
   "name": "gatsby-starter-intl",
   "private": true,
   "description": "A simple starter to get up and developing quickly with Gatsby and i18n",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "author": "Tomek Skuta <tomskuta@gmail.com>",
   "dependencies": {
     "browser-lang": "^0.0.1",
@@ -31,7 +31,7 @@
     "develop": "gatsby develop",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -40,5 +40,11 @@
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "babel-jest": "^24.1.0",
+    "babel-preset-gatsby": "^0.1.8",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^24.1.0",
+    "react-test-renderer": "^16.8.3"
+  }
 }

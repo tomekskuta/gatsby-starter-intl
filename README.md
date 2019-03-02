@@ -9,6 +9,8 @@
 Gatsby v2 i18n starter based on [Gatsby Starter Default](https://github.com/gatsbyjs/gatsby-starter-default) and [gatsby-starter-default-intl](https://github.com/wiziple/gatsby-starter-default-intl).
 Gatsby creates static pages for every language and detects your browser locale. :guitar:
 
+...and you know, it's React 16.8.3 - you can use **hooks**!
+
 [Checkout demo!](https://gatsby-starter-intl.tomekskuta.pl/)
 
 ## How to start
@@ -55,10 +57,26 @@ export default {
 };
 ```
 
+tbc...
+
+## Tests
+
+:point_right: :bug:
+
+Unit tests are configured with [Jest](https://jestjs.io/) followed [official Gatsby documentation](https://www.gatsbyjs.org/docs/unit-testing/).
+
+There is `src/__pages-tests__` directory prepared for pages tests where I set example snapshot test for homepage.
+Test for `<Header />` is in `src/components/Header/header.test.js` next to file with the component.
+
+[Test react-intl.](https://github.com/yahoo/react-intl/wiki/Testing-with-React-Intl#jest)
+
+[More info about testing Gatsby components and Graphql.](https://github.com/gatsbyjs/gatsby/blob/master/docs/docs/testing-components-with-graphql.md)
+
 TODO:
 
 - write good docz.
-- config unit tests
+- add project to official [gatsby starter library](https://www.gatsbyjs.org/starters/?v=2)
+- :cocktail: open champagne!
 
 ### Default starter's docs:
 
