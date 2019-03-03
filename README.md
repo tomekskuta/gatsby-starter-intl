@@ -42,6 +42,8 @@ Start build your great i18n Gatsby app! :rocket:
 Gatsby creates **static pages** for every language sets in `src/i18n/languages.js`.
 It looks like `/en/page-2` and `/pl/page-2`. Google loves it - they said.
 
+### Translations
+
 Translations are set in `src/i18n/translations/`. For better navigation I prefer create files for every page. Unfortunately react-intl supports only flat objects so in `src/i18n/translations/chosen-lang/index.js` I used [flat](https://github.com/hughsk/flat). Don't forget to import your translate file into `index.js` in the same directory.
 Then if I want to get translation for `Welcome to page 2` on `page-2` I do it like this:
 
@@ -57,7 +59,80 @@ export default {
 };
 ```
 
-tbc...
+### Languages
+
+Languages list is in `src/i18n/languages.js`. Elements of array has attrs:
+
+- locale - key to identify your locale,
+- label - pretty name of your locale to display in list or buttons in your UI.
+- default - if true it is fallback language for app. It is used in `src/i18n/detectLocale` and `src/layout/withLayout.jsx`.
+
+### Redirect
+
+Redirect is a component declared in `src/i18n/redirect.jsx`.
+It is used in `gatsby-node.js` as a default component for every root without locale.
+It detects language from localStorage or browser langs and redirect to correct locale route.
+
+`/page-2/` :point_right: `/en/page-2`
+
+### Layout
+
+There are every necessary components and properties used by every page. I moved it from `Layout.js` to a HOC `withLayout`. I did it to minimize amount of props manually sets from page to Layouts components. :boy::point_left:
+In standard way you have to set `locale` and `pageContext` on every page. Now if you don't need to set any custom props just import `withLayout` to your page and use it in export:
+
+```jsx
+// src/pages/my-page.jsx
+
+import withLayout from '../layout';
+
+const MyPage = () => <div>Hello guys!</div>;
+
+export default withLayout()(MyPage);
+```
+
+Of course you can set your custom props to layout:
+
+```jsx
+const customProps = {
+  mySuperCustomProp: 'oh yeah Im his super custom prop',
+};
+
+export default withLayout(customProps)(MyPage);
+```
+
+In this example I used 2 customProps:
+
+- localeKey - it can tells your layout the page key in `src/i18n/translations/[locale]/index.js` to set individual properties to every language page (ex. site title, description or keywords).
+- hideLangs - to hide possibility of changing languages (ex. in 404).
+
+witLayout use [**Context API**](https://reactjs.org/docs/context.html) to share `pageContext` and `customProps` to every component you want in your page.
+PageContext object looks like:
+
+```js
+PageContext = {
+  custom, // customProps
+  page, // pageContext from Gatsby magic
+};
+```
+
+To get context you can use hooks:
+
+```jsx
+// src/components/MyComponent.jsx
+
+import React, { useContext } from 'react';
+import PageContext from '../layout/PageContext';
+
+const MyComponent = () => {
+  const pageContext = useContext(PageContext);
+  return <div>{pageContext.page.locale}</div>;
+};
+```
+
+### Change Languages
+
+Inside `src/components/Langs.jsx` is possibility to change language.
+Set language function set chosen locale to `localStorage` and use Gatsby's `navigate` method to redirect to chosen locale page.
 
 ## Tests
 
@@ -72,99 +147,10 @@ Test for `<Header />` is in `src/components/Header/header.test.js` next to file 
 
 [More info about testing Gatsby components and Graphql.](https://github.com/gatsbyjs/gatsby/blob/master/docs/docs/testing-components-with-graphql.md)
 
-TODO:
+## Contributing
 
-- write good docz.
-- add project to official [gatsby starter library](https://www.gatsbyjs.org/starters/?v=2)
-- :cocktail: open champagne!
+If you have any question, see bugs or you think some feature can be written better - just open pull request or issue. I will be happy to help and learn from you.
 
-### Default starter's docs:
+## License
 
-<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
-
-Kick off your project with this default boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
-
-_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.org/docs/gatsby-starters/)._
-
-## 🚀 Quick start
-
-1.  **Create a Gatsby site.**
-
-    Use the Gatsby CLI to create a new site, specifying the default starter.
-
-    ```sh
-    # create a new Gatsby site using the default starter
-    npx gatsby new my-default-starter https://github.com/gatsbyjs/gatsby-starter-default
-    ```
-
-1.  **Start developing.**
-
-    Navigate into your new site’s directory and start it up.
-
-    ```sh
-    cd my-default-starter/
-    gatsby develop
-    ```
-
-1.  **Open the source code and start editing!**
-
-    Your site is now running at `http://localhost:8000`!
-
-    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
-
-    Open the `my-default-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
-
-## 🧐 What's inside?
-
-A quick look at the top-level files and directories you'll see in a Gatsby project.
-
-    .
-    ├── node_modules
-    ├── src
-    ├── .gitignore
-    ├── gatsby-browser.js
-    ├── gatsby-config.js
-    ├── gatsby-node.js
-    ├── gatsby-ssr.js
-    ├── LICENSE
-    ├── package-lock.json
-    ├── package.json
-    └── README.md
-
-1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
-
-2.  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. `src` is a convention for “source code”.
-
-3.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
-
-4.  **`.prettierrc`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
-
-5.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.org/docs/browser-apis/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
-
-6.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.org/docs/gatsby-config/) for more detail).
-
-7.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.org/docs/node-apis/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
-
-8.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.org/docs/ssr-apis/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
-
-9.  **`LICENSE`**: Gatsby is licensed under the MIT license.
-
-10. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
-
-11. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
-
-12. **`README.md`**: A text file containing useful reference information about your project.
-
-## 🎓 Learning Gatsby
-
-Looking for more guidance? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.org/). Here are some places to start:
-
-- **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.org/tutorial/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
-
-- **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.org/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
-
-## 💫 Deploy
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
-
-<!-- AUTO-GENERATED-CONTENT:END -->
+[MIT](https://opensource.org/licenses/MIT)

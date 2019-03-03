@@ -23,7 +23,6 @@ const withLayout = customProps => PageComponent => props => {
 
   const defaultLocale = languages.find(language => language.default).locale;
   const pageLocale = locale || defaultLocale;
-
   const pageTitle = locale ? translations[locale][`${localeKey}.title`] : '';
 
   return (
