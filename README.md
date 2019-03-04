@@ -45,7 +45,7 @@ It looks like `/en/page-2` and `/pl/page-2`. Google loves it - they said.
 ### Translations
 
 Translations are set in `src/i18n/translations/`. For better navigation I prefer create files for every page. Unfortunately react-intl supports only flat objects so in `src/i18n/translations/chosen-lang/index.js` I used [flat](https://github.com/hughsk/flat). Don't forget to import your translate file into `index.js` in the same directory.
-Then if I want to get translation for `Welcome to page 2` on `page-2` I do it like this:
+Then if I want to get translation for `Welcome to page 2` on `page-2` I do it this way:
 
 ```jsx
 <FormattedMessage id="page2.Welcome to page 2" />
@@ -133,6 +133,34 @@ const MyComponent = () => {
 
 Inside `src/components/Langs.jsx` is possibility to change language.
 Set language function set chosen locale to `localStorage` and use Gatsby's `navigate` method to redirect to chosen locale page.
+
+### 404
+
+Gatsby makes locale pages for 404 too but it doesn't work properly on local develop server.
+To see your error page hit `gatsby build && gatsby serve` in bash and then you can get all your production build on `localhost:9000`.
+
+I'm not sure but 404 constructed this way can not work properly with some static page servers (I didn't use any of them with this starter). Starter's Demo is served by [Express](https://expressjs.com/) and function to serve error page looks like this:
+
+```js
+app.use((req, res, next) => {
+  fs.readFile(__dirname + './public/404.html', 'utf-8', (err, page) => {
+    res.writeHead(404, { 'Content-Type': 'text/html' });
+    res.write(page);
+    res.end();
+  });
+  return;
+});
+```
+
+If you don't need i18n inside your 404 you can put this condition at the top of `onCreatePage` method in `gatsby-node.js`:
+
+```js
+if (page.path.includes('404')) {
+  return Promise.resolve();
+}
+```
+
+Gatsby will skip building locale pages for 404 and you can see error page during developing with `gatsby develop`.
 
 ## Tests
 
