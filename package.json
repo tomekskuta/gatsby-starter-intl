@@ -2,23 +2,23 @@
   "name": "gatsby-starter-intl",
   "private": true,
   "description": "A simple starter to get up and developing quickly with Gatsby and i18n",
-  "version": "0.4.1",
+  "version": "1.0.0",
   "author": "Tomek Skuta <tomskuta@gmail.com>",
   "dependencies": {
     "browser-lang": "^0.0.1",
     "flat": "^4.1.0",
-    "gatsby": "^2.1.17",
-    "gatsby-image": "^2.0.29",
-    "gatsby-plugin-manifest": "^2.0.19",
+    "gatsby": "^2.1.24",
+    "gatsby-image": "^2.0.31",
+    "gatsby-plugin-manifest": "^2.0.22",
     "gatsby-plugin-offline": "^2.0.24",
-    "gatsby-plugin-react-helmet": "^3.0.6",
-    "gatsby-plugin-sharp": "^2.0.22",
-    "gatsby-source-filesystem": "^2.0.22",
-    "gatsby-transformer-sharp": "^2.1.14",
+    "gatsby-plugin-react-helmet": "^3.0.8",
+    "gatsby-plugin-sharp": "^2.0.25",
+    "gatsby-source-filesystem": "^2.0.23",
+    "gatsby-transformer-sharp": "^2.1.15",
     "path": "^0.12.7",
     "prop-types": "^15.7.2",
-    "react": "^16.8.3",
-    "react-dom": "^16.8.3",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
     "react-helmet": "^5.2.0",
     "react-intl": "^2.8.0"
   },
@@ -41,10 +41,10 @@
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "devDependencies": {
-    "babel-jest": "^24.1.0",
+    "babel-jest": "^24.3.0",
     "babel-preset-gatsby": "^0.1.8",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^24.1.0",
-    "react-test-renderer": "^16.8.3"
+    "jest": "^24.3.0",
+    "react-test-renderer": "^16.8.4"
   }
 }

@@ -9,7 +9,7 @@
 Gatsby v2 i18n starter based on [Gatsby Starter Default](https://github.com/gatsbyjs/gatsby-starter-default) and [gatsby-starter-default-intl](https://github.com/wiziple/gatsby-starter-default-intl).
 Gatsby creates static pages for every language and detects your browser locale. :guitar:
 
-...and you know, it's React 16.8.3 - you can use **hooks**!
+...and you know, it's React 16.8 - you can use **hooks**!
 
 [Checkout demo!](https://gatsby-starter-intl.tomekskuta.pl/)
 
